@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+</head>
+
+<body>
+    <h1>Exercicios</h1>
+    <h4>Exercicio 1</h4>
+    <button onclick="abrirExercicio1()">Abrir exercicio 1</button>
+    <br>
+    <h4>Exercicio 2</h4>
+    <button onclick="abrirExercicio2()">Abrir exercicio 2</button>
+    <br>
+    <h4>Exercicio 3</h4>
+    <button onclick="abrirExercicio3()">Abrir exercicio 3</button>
+    
+    
+    <br>
+    <h4>Exercicio 4</h4>
+    <p>digite o numero</p>
+    <input type="number" id="numero">
+    <button onclick="abrirExercicio4()">Abrir exercicio 4</button>
+    <br>
+    <p>--------------------------------</p>
+    <h4>Exercicio 5</h4>
+    <p>digite o primeiro numero:</p>
+    <input type="number" id="valordaconta1">
+    <p>digite o segundo numero:</p>
+    <input type="number" id="valordaconta2">
+    <p>escolha a operação</p>
+    <select id="select_id">
+        <option value="Soma">Soma</option>
+        <option value="Subtração">Subtração</option>
+        <option value="Multiplicação">Multiplicação</option>
+        <option value="Divisão">Divisão</option>
+    </select>
+    <br>
+    <input type="button" id="btninfo" value="valor selecionado" onclick="abrirExercicio5()"/>
+    <p>--------------------------------</p>
+
+    
+    <br>
+    <h4>Exercicio 6</h4>
+    <button onclick="abrirExercicio6()">Abrir exercicio 6</button>
+    <br>
+    <p>--------------------------</p>
+    <h4>Exercicio 7</h4>
+    <p>Custo de fabrica:</p>
+    <input type="number" id="custodeFabrica">
+    <p>% do distribuidor:</p>
+    <input type="number" id="percDistribuidor">
+    <p>% Impostos:</p>
+    <input type="number" id="percImpostos">
+    <button onclick="btnCalcular()">Botão calcular</button>
+    <p>Valor Final:</p>
+    <input type="text" id="valorFinal">
+    <p>--------------------------</p>
+
+
+    <script type="text/javascript">
+        //exercicio 1
+        function abrirExercicio1() {
+            var num1 = 100;
+            var num2 = 10;
+            alert(num1 + num2);
+            alert(num1 - num2);
+            alert(num1 / num2);
+            alert(num1 * num2);
+        }
+
+        //exercicio 2
+        function abrirExercicio2() {
+            for (let countador = 10; countador <= 100; countador++) {
+                console.log(countador);
+            }
+        }
+        //exercicio 3
+        function abrirExercicio3() {
+            for (let countabuada = 0; countabuada <= 10; countabuada++) {
+                const tabuada = 5;
+                console.log(tabuada * countabuada);
+            }
+        }
+        //exercicio 4
+        function abrirExercicio4() {
+            for (let countabuada = 0; countabuada <= 10; countabuada++) {
+                var numero = document.getElementById("numero").value;
+                console.log(numero * countabuada);
+            }
+        }
+        //exercicio 5
+        function abrirExercicio5() {
+            var valornumero1 =document.getElementById("valordaconta1").value;
+            var valornumero2 = document.getElementById("valordaconta2").value;
+            if(document.getElementById("select_id").value== "Soma"){
+                console.log(parseFloat(valornumero1)+parseFloat(valornumero2));
+
+            }
+            else if(document.getElementById("select_id").value== "Subtração"){
+                console.log(valornumero1 - valornumero2);
+            }
+            else if(document.getElementById("select_id").value== "Multiplicação"){
+                console.log(valornumero1 * valornumero2);
+            }
+            else if(document.getElementById("select_id").value== "Divisão"){
+                console.log(valornumero1 / valornumero2);
+            }
+        }
+          //exercicio 6
+          function abrirExercicio6() {
+            const arrayPar = [1,2,3,4,5,6,7,8,9,10];
+            for (let ht = 0; ht < 10; ht++) {
+                if(arrayPar[ht]%2==0)
+                console.log(arrayPar[ht]);
+            }
+        }
+          function btnCalcular(){
+         var custodeFabrica   = document.getElementById("custodeFabrica").value;
+         var percDistribuidor = document.getElementById("percDistribuidor").value/100;
+         var percImpostos     = document.getElementById("percImpostos").value/100;
+         var custoFinal       =  parseFloat(custodeFabrica) + (parseFloat(custodeFabrica) *parseFloat( percDistribuidor)) + (parseFloat(custodeFabrica) * parseFloat(percImpostos));
+         const string = custoFinal + '';
+         document.getElementById("valorFinal").value = custoFinal;  
+        
+          }
+    </script>
+</body>
+
+</html>

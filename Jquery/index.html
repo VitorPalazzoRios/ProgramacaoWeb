@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="ListaComida">
+        <li data-id="1">
+            1-cachorro quente
+            <span classe="preco">R$5,00</span>
+        </li>
+        <li data-id="2">
+            2-X-burguer
+            <span classe="preco">R$10,00</span>
+        </li>
+        <li data-id="3">
+        3-Misto quente
+        <span classe="preco">R$8,00</span>
+        </li>
+    </ol>
+    <input type="number" id="txtCodigo" placeholder="Informe o código">
+    <button id="btnAdd">Adicionar</button>
+    <input type="text" id="ValorTotal" placeholder="Valor Total">
+    <textarea id="itensPedido" cols="5" rows="5"></textarea>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    
+    </script>
+<script>
+   var valorTotal = 0;
+        $("#btnAdd").click(function () {
+            if ($("#txtCodigo").val() != '') {
+                let codigoCardapio = $("#txtCodigo").val();
+
+                $("#listaComida li").each(function (index, element) {
+                    if ($(element).data("id") == codigoCardapio) {
+                        let preco = parseFloat($(element).children(".preco").text().replace("R$ ", "").replace(",", "."));
+                        valorTotal += preco;
+                        $("#valorTotal").val(
+                            valorTotal.toLocaleString("pt-BR",
+                                {
+                                    minimumFractionDigits: 2,
+                                    style: 'currency', currency: 'BRL'
+                                })
+                        );
+                        let itens = $("#itensPedido").val();
+                        itens += "\n" + $(element).text();
+                        $("#itensPedido").val(itens);
+                        $("#itensEscolhidos").append("<li>" + $(element).text() + "</li>");
+                    }
+                });
+            }
+        });
+        
+
+    
+</script>
+</body>
+</html>

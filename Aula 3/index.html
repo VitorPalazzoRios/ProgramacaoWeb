@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+
+        <input type="text" spellcheck="true" autofocus placeholder="Nome" required>
+        <br>
+        <input type = "range" min = "0" max = "100" value = "50" step="10" >
+        <br>
+        <input type="text" name="cep" id="cep" required pattern="\d{5}=?\d{3}">
+        <br>
+        <input type="text" name="cpf" id="cpf" required pattern="\d{3}.?\d{3}.?\d{3}-?\d{2}">
+        <input type="range" list="tickmarks">
+        <datalist id="tickmarks">
+            <option value="0" label="0%">
+            <option value="10">
+            <option value="20">
+            <option value="30">
+            <option value="40">
+            <option value="50" label="50%">
+            <option value="60">
+            <option value="70">
+            <option value="80">
+            <option value="90">
+            <option value="100" label="100%">
+        </datalist>
+         <button type="submit">Salvar</button>
+         <br>
+        <div contenteditable="true">
+              Edit Aqui...
+              <p>Teste <b>Teste2</b></p>
+        </div>
+        <a href="drag-n-drop.html?id=123&nome=teste123" target="_blank"></a>
+         <br>
+         <details>
+            <summary>Copiando <progress max="39248" value="14718"> 37,5%</summary>
+            <dl>
+            <dt>Tamanho total:</dt>
+            <dd>39.248KB</dd>
+            <dt>Transferido:</dt>
+            <dd>14.718</dd>
+            <dt>Taxa de transferência:</dt>
+            <dd>127KB/s</dd>
+            <dt>Nome do arquivo:</dt>
+            <dd>HTML5.mp4</dd>
+            </dl>
+        </details>
+<br>           
+
+    </form>
+   
+</body>
+</html>

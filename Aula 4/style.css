@@ -1,0 +1,73 @@
+.principal{
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30px;
+    color: #280;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+
+table td,table th{
+    border: solid 1px black;
+}
+
+
+
+
+
+#tb1{
+border: solid 1px black;
+width: 766px;
+height: 36px;
+
+}
+
+a:link{
+    color: #0000ff;
+}
+
+a:visited{
+    color : #DDC71A
+}
+
+a:active{
+    color : #AC0B44
+}
+a:hover{
+    color: #FF0000;
+    font-weight: bold;
+}
+.origem{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    color: #280;
+    background-color: #FFF;
+}
+.titulo{
+font-family: arial;
+font-weight: bold;
+font-style: italic;
+font-size: 12px;
+background-color: #FFF;
+
+}
+.resumo{
+    font-family: Arial;
+    font-size: 12px;
+    background-color: #FFF;
+
+
+    }
+    .rodape{
+        font-family: arial;
+        font-weight: bold;
+        font-style: italic;
+        font-size: 11px;
+        background-color: #280; 
+        text-align: center;
+    }

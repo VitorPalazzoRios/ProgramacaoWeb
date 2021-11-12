@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscrição</title>
+</head>
+<body>
+    <h1>Formulario de Inscrição</h1>
+    <form>
+        <fieldset>
+            <h4>Dados do aluno</h4>
+            <label>Nome Completo</label><br>
+             <input type="text" name="nome" id="nome" required="required">
+            <br>
+            <label>Endereço</label><br>
+            <input type="text" name="endereco" id="endereco">
+            <br>
+            <label>Bairro</label><br>
+            <input type="text" name="bairro" id="bairro">
+            <br>
+            <label>Cidade</label><br>
+            <input type="text" name="cidade" id="cidade">
+            <br>
+            <label>Numero</label><br>
+            <input type="text" name="numero" id="numero">
+            <br>
+            <label>Cep</label><br>
+            <input type="text" name="cep" id="cep">
+            <br>
+            <label>Complemento</label><br>
+            <input type="text" name="complemento" id="complemento">
+            <br>
+            
+
+
+            <label>Estado</label><br>
+            <select id="estado" name="estado">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+                <option value="EX">Estrangeiro</option>
+            </select>
+            <br>
+
+            <label>Tefone</label><br>
+            <input type="tel"  maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" />
+            <br>
+            <label>Celular</label><br>
+            <input type="tel" required="required" name="celular" id="celular" placeholder="(99) 9999-9999" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})">
+            <br>
+            <label>Email</label><br>
+            <input type="email" required="required"  name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+            <br>
+            
+            <label>Cor</label>
+            <select id="cor" name="cor" required="required">
+                <option value="branco">Branca</option>
+                <option value="preta">Preta</option>
+                <option value="Parda">Parda</option>
+                <option value="amarela">Amarela</option>
+                <option value="indigina">Indigina</option>
+
+            </select>
+            <hr>
+           <h4>Dados do pai</h4>
+           <label>Nome Completo</label><br>
+             <input type="text" name="nome" id="nome" required="required">
+            <br>
+            <label>Naturalidade</label><br>
+             <input type="text" name="naturalidade" id="naturalidade">
+            <br>
+            <label>Data de nascimento?</label><br>
+            <input type="date" name="dataNascimento" id="dataNascimento">
+            <br>
+            <label>Instrução</label><br>
+             <input type="text" name="naturalidade" id="naturalidade">
+            <br>
+            <label>Profissão</label><br>
+             <input type="text" name="naturalidade" id="naturalidade">
+            <br>
+            <label>Tefone</label><br>
+            <input type="tel" required="required" maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" />
+            <br>
+            <label>Celular</label><br>
+            <input type="tel" name="celular" id="celular" placeholder="(99) 9999-9999" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required="required">
+            <br>
+            <label>CPF</label><br>
+            <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required="required">
+            <br>
+            <label>É o responsavel financeiro?</label><br>
+            <select id="escolha" name="escolha">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+            
+            
+            
+            <hr>
+            <h4>Dados da mãe</h4>
+            <label>Nome Completo</label><br>
+              <input type="text" name="nome" id="nome" required="required">
+             <br>
+             <label>Naturalidade</label><br>
+              <input type="text" name="naturalidade" id="naturalidade">
+             <br>
+             <label>Data de nascimento?</label><br>
+             <input type="date" name="dataNascimento" id="dataNascimento">
+             <br>
+             <label>Instrução</label><br>
+              <input type="text" name="naturalidade" id="naturalidade">
+             <br>
+             <label>Profissão</label><br>
+              <input type="text" name="naturalidade" id="naturalidade">
+             <br>
+             <label>Tefone</label><br>
+             <input type="tel" required="required" maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" />
+             <br>
+             <label>Celular</label><br>
+             <input type="tel" name="celular" id="celular" placeholder="(99) 9999-9999" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required="required">
+             <br>
+             <label>CPF</label><br>
+             <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required="required">
+
+            <br>
+            <label>É o responsavel financeiro?</label><br>
+            <select id="escolha" name="escolha">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+            <br>
+            <hr>
+            <h4>Dados do curso</h4><br>
+            <label>Curso escolhido</label>
+<select>
+    <option value="Cursomúsica">Curso de música R$150,00</option>
+    <option value="Cursodança">Curso de dança R$250,00</option>
+    <option value="Cursofilosofia">Curso de filosofia R$200,00</option>
+</select>
+
+            <br>
+            <label>Quantas vezes ? ou avista</label>
+             <select name="" id="" required="required">
+             <option value="avista">avista</option>
+             <option value="2">2x</option>
+             <option value="3">3x</option>
+             <option value="4">4x</option>
+             <option value="5">5x</option>
+             <option value="6">6x</option>
+             <option value="7">7x</option>
+             <option value="8">8x</option>
+            </select>
+            
+
+             <label>Data de ingresso</label>
+             <input type="date" name="datadeingresso" id="datadeingresso">
+             
+
+
+
+
+            <input type="submit"  name ="b1" value="Salvar">
+            <INPUT type="reset"   name= "b2" value="Limpar">
+       
+
+        </fieldset>
+</body>
+</html>

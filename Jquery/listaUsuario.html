@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jqueryTeste</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link href="assets/jquery.toast.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Tabela -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUsuario">
+                    <i class="bi bi-plus"></i>Adicionar</button>
+                <table class="table table striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>E-mail</th>
+                            <th>Senha</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody id="tabUsuario"></tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Fim da tabela -->
+    <!-- Modal -->
+    <div class="modal fade" id="addUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloModal">Adicionar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmUsuario">
+                        <input type="hidden" name="id" id="id">
+                        <div class="mb-3"><label for="email" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="email" placeholder="e-mail" name="email">
+                        </div>
+                        <div class="mb-3"><label for="senha" class="form-label">Senha</label><input type="password"
+                                class="form-control" id="senha" name="senha"></div>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Fechar</button>
+                    <button id="btnSalvar" type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim do modal -->
+    <!-- Importação bootstrap e JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="assets/jquery.toast.min.js"></script>
+    <!-- Fim  da importação -->
+    <script>
+        getUsuario();
+
+
+
+        $("#btnSalvar").click(function () {
+           if($("#id").val() != ""){
+           putUsuario($("#id").val(),$("#frmUsuario").serialize());
+           console.log("ei");
+        }
+           else{
+            postUsuario();
+            console.log("ei2");
+        }
+        });
+
+        $("body").on("click", ".btnEditar", function () {
+            getUsuarioById($(this).data("id"));
+        });
+        $("body").on("click", ".btnExcluir", function () {
+            deleteUsuario($(this).data("id"));
+        });
+
+        $("#addUsuario").on('show.bs.modal', function (e) {
+            if ($("#id").val() == ''){
+                $("#tituloModal").html('Adicionar Usuário');
+            }
+            else{
+                $("#tituloModal").html('Editar Usuário');
+            }
+        
+        });
+        $("#addUsuario").on('hidden.bs.modal', function (e) {
+            limparFormUsuario();
+        });
+
+        function getUsuario() {
+            $.get("https://61563f7ce039a0001725a96a.mockapi.io/api/v1/usuario", function (data) {
+                $("#tabUsuario").html('');
+                $(data).each(function (i, e) {
+                    $("#tabUsuario").append("<tr><td>" + e.id + "</td><td>" + e.email + "</td><td>" + e.senha + "</td><td>" +
+                        "<button class='btn btn-primary btnEditar' data-id='" + e.id + "'><i class='bi bi-pencil-square'></i>Editar</button>"
+                        +
+                        "<button class='btn btn-danger btnExcluir' data-id='" + e.id + "'><i class='bi bi-trash'></i>Excluir</button>"
+                        +
+                        "</td></tr>");
+                });
+            });
+        }
+
+        function getUsuarioById(id) {
+            $.get("https://61563f7ce039a0001725a96a.mockapi.io/api/v1/usuario/" + id, function (data) {
+                $("#id").val(data.id);
+                $("#email").val(data.email);
+                $("#senha").val(data.senha);
+                $("#addUsuario").modal('show');
+            })
+        }
+
+        function postUsuario() {
+            $.post("https://61563f7ce039a0001725a96a.mockapi.io/api/v1/usuario", $("#frmUsuario").serialize(),
+                function (data) {
+                    $("#addUsuario").modal("toggle");
+                    console.log("post")
+                    getUsuario();
+                });
+        }
+
+        function deleteUsuario(id) {
+            $.ajax({
+                url: "https://61563f7ce039a0001725a96a.mockapi.io/api/v1/usuario/" + id,
+                method: "DELETE",
+                success: function () {
+                    $.toast({ text: "Excluído com sucesso!", bgColor: 'green', position: "top-right" });
+                    getUsuario();
+                },
+                error: function (error) {
+                    $.toast({ text: "Erro ao excluir: " + error, bgColor: "red", position: "top-right" });
+                }
+            });
+        }
+        function putUsuario(id,form) {
+            $.ajax({
+                url: "https://61563f7ce039a0001725a96a.mockapi.io/api/v1/usuario/" + id,
+                method: "PUT",
+                data: form,
+                success: function () {
+                    $("#addUsuario").modal('toggle');
+                    
+                    $.toast({ text: "Salvo com sucesso!", bgColor: 'green', position: "top-right" });
+                    getUsuario();
+                
+                },
+                error: function(error){
+                    $.toast({ text: "Erro ao alterar: " + error, bgColor: "red", position: "top-right" });
+                }
+            });
+        }
+        function limparFormUsuario(){
+                $("#id").val('');
+                $("#email").val('');
+                $("#senha").val('');
+            
+        }
+    </script>
+
+</body>
+
+</html>
