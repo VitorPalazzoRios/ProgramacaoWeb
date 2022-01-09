@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-12">
+        <h1>Componente de calculadora</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="mb-3"><label for="num1" class="form-label">Numero 1</label>
+            <!-- input -->
+            <input type="number" class="form-control" id="num1" name="num1" [(ngModel)]="numero1">
+        </div>
+        <div class="mb-3"><label for="num2" class="form-label">Numero 2</label>
+            <!-- input -->
+            <input type="number" class="form-control" id="num2" name="num2" [(ngModel)]="numero2">
+        </div>
+        <button class="btn btn-primary" (click)="somar()">Somar</button>
+        <div class="mb-3"><label for="resultado" class="form-label" >Resultado</label>
+            <!-- input -->
+            <input type="number" class="form-control" id="resultado" name="resultado" [(ngModel)]="numero1 + numero2">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Resultados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of resultados">
+                            <td>{{item}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>

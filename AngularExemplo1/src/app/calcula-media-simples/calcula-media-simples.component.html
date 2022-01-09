@@ -1,0 +1,44 @@
+<div class="container">
+    <div class = "row">
+        <div class="col-md-12">
+            <h1>Calcular media simples</h1>
+
+            <!-- AC1 -->
+            <div class="mb-3">
+                <label for="num1" class="form-label">AC1</label>
+                <input type="number" class="form-control" id="ac1" name="ac1" [(ngModel)]="ac1">
+            </div>
+            <!-- AC2 -->
+            <div class="mb-3">
+                <label for="num1" class="form-label">AC2</label>
+                <input type="number" class="form-control" id="ac2" name="ac2" [(ngModel)]="ac2">
+            </div> 
+            <!-- AG -->    
+            <div class="mb-3">
+                <label for="num1" class="form-label">AG</label>
+                <input type="number" class="form-control" id="ag" name="ag" [(ngModel)]="ag">
+            </div>
+             <!-- AF -->    
+            <div class="mb-3">
+                <label for="num1" class="form-label">AF</label>
+                <input type="number" class="form-control" id="af" name="af" [(ngModel)]="af">
+            </div>
+            <!-- Botão executando a ação -->    
+           <button class="btn btn-primary" (click)="calcularMedia()">Calcular</button>
+           <div class="mb-3">
+            <!-- Média resultado --> 
+            <label for="num1" class="form-label">Média</label>
+            <input type="number" class="form-control" id="media" name="media" [(ngModel)]="media">
+        </div>
+        <div *ngIf="media >=5" class="alert alert-success" role="alert">
+            Você está APROVADO!
+          </div>
+          <div *ngIf="media < 5" class="alert alert-danger" role="alert">
+            Você está REPROVADO!
+          </div>
+          <!-- ultilizando ngclass -->
+           <!-- <div [ngClass]="{'alert alert danger':media < 5,'alert alert success':media >= 5}" class="alert alert-danger" role="alert">
+            {{media== undefined ? '' : media >= 6 ? 'Você está APROVADO!' : 'Você está Reprovado!'}}
+        </div> -->
+    </div>
+</div>
